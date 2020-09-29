@@ -2,6 +2,9 @@
 Better version of this repo
 https://github.com/ededddy/UM-Whole-Person-Activities-Card
 
+# Running instance
+https://um-whole-person-activity-list.vercel.app/
+
 # Differences?
 No more WrapAPIv2, because it does not support js scripting to show all events.
 
