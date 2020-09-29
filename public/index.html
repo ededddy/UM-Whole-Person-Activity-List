@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UM Wholeperson</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Semantic ui import -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="./images/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="./images/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="./images/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="./images/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="./images/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="./images/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="./images/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="./images/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./images/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="./images/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="./images/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./images/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-TileImage"
+      content="./images/ms-icon-144x144.png"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+
+  <body>
+    <div id="app" style="margin: 1.25rem">
+      <h1 class="ui header" style="text-align: center">UM Whole Person</h1>
+      <div class="ui grid">
+        <!-- side panel -->
+        <div class="four wide column">
+          <div class="ui vertical fluid tabular menu">
+            <a class="item active" @click="updateItems('', $event)">All</a>
+            <a
+              :key="idx"
+              @click="updateItems(area, $event)"
+              v-for="(area, idx) of areas"
+              class="item"
+            >
+              {{area}}
+            </a>
+          </div>
+        </div>
+        <!-- content -->
+        <div class="twelve wide stretched column">
+          <div class="ui segment">
+            <div v-if="loading">
+              <v-loading
+                style="
+                  position: absolute;
+                  top: 50%;
+                  margin-left: auto;
+                  margin-right: auto;
+                "
+              />
+            </div>
+            <div class="content-wrap">
+              <div class="ui link cards content">
+                <div
+                  v-if="!loading"
+                  class="card fluid"
+                  v-for="activity in items"
+                >
+                  <div class="image">
+                    <img
+                      src="https://www.um.edu.mo/sao/sds/std/wpdap/WP%20Logo.jpg"
+                    />
+                  </div>
+
+                  <div class="content">
+                    <a class="header" :href="activity.link" target="_blank"
+                      >{{ activity.activity }}</a
+                    >
+
+                    <div class="meta">
+                      <span class="date">
+                        <b>{{ activity.date }}</b> <br />
+                        <b>{{ activity.time }}</b>
+                      </span>
+                    </div>
+
+                    <div class="description grid">
+                      <div class="segment">
+                        <b>Orgainised By</b>: {{ activity.organizer }}
+                      </div>
+                      <div class="segment">
+                        <b>Area</b>: {{ activity.wpArea }}
+                      </div>
+                      <div class="segment">
+                        <b>Scores</b>: {{ activity.CS }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="extra content">
+                    <a>
+                      <i class="street view icon"></i>
+                      at {{ activity.venue }}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      Made by <a href="http://github.com/ededddy/" target="_blank">Eddy</a>.
+      Contact
+      <a href="mailto:eddylei070300@gmail.com" target="_blank"
+        >eddylei070300@gmail.com</a
+      >
+      if you have any <b>issue</b> or <b>suggestion</b>
+      <br />
+      <div id="repo">
+        <a
+          href="https://github.com/ededddy/UM-Whole-Person-Activities-Card"
+          target="_blank"
+        >
+          <img
+            class="github-icon"
+            src="./images/GitHub-Mark-120px-plus.png"
+            alt="Github repo"
+          />
+          GitHub
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+html {
+  overflow: hidden;
+}
+.custom-progress {
+  width: 91.333333%;
+  border-radius: 9999px;
+  background-color: white;
+  border: 1px solid #cbd5e0;
+}
+
+.custom-bar {
+  border-radius: 9999px;
+  background-color: cyan;
+  width: 30%;
+  -webkit-animation: load 1s linear infinite;
+  animation: load 1s linear infinite;
+  position: absolute;
+}
+@-webkit-keyframes load {
+  0% {
+    right: 70%;
+  }
+  100% {
+    right: 0;
+  }
+}
+@keyframes load {
+  0% {
+    right: 70%;
+  }
+  100% {
+    right: 0;
+  }
+}
+footer {
+  font-size: 21px;
+  bottom: 0;
+  position: fixed;
+  border-top: 1px solid #cbd5e0;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  z-index: 1000;
+}
+.content-wrap {
+  height: 74vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-top: 1rem;
+  margin-left: 5% !important;
+  -webkit-overflow-scrolling: touch;
+}
+.content {
+  margin-left: 5% !important;
+}
+.github-icon {
+  width: 1.5rem;
+  height: auto;
+}
+#repo {
+  margin: none;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+@media only screen and (max-width: 550px) {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  html {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .content-wrap {
+    height: 65vh;
+  }
+  .content-wrap,
+  .content {
+    transform: translate(-3%, 0%);
+  }
+  .item {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  footer {
+    font-size: 10px;
+  }
+  .github-icon {
+    width: 0.9rem;
+    height: auto;
+  }
+}
