@@ -22,7 +22,7 @@ new Vue({
   mounted() {
     axios({
       // url: "https://wrapapi.com/use/ededdy/umwp/news/0.0.3",
-      url: "http://localhost:3000/activities",
+      url: "/activities",
       method: "get",
       // data: {
       //   // "wrapAPIKey": "1RpF8AqqGz5fdUrzikjKB8ZD9Qy2RJ0G"
