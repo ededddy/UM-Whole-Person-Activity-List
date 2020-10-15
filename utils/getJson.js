@@ -2,7 +2,9 @@ const puppeteer = require("puppeteer");
 const fs = require("fs");
 
 const getData = async () => {
-  const browser = await puppeteer.launch({ headless: true, devtools: false });
+  const browser = await puppeteer.launch({
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  });
   const page = await browser.newPage();
   await page.goto("https://isw.umac.mo/wp/faces/news.jspx");
   await page.evaluate(() => {
