@@ -7,7 +7,11 @@ const app = express();
 app.use(cors());
 app.use(express.static("public"));
 app.get("/activities", async (req, res) => {
-  res.send(await util.getData());
+  try {
+    res.send(await util.getData());
+  } catch (err) {
+    res.send(err);
+  }
 });
 
 const PORT = process.env.PORT || 5000;
