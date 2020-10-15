@@ -23,16 +23,20 @@ new Vue({
     axios({
       url: "/activities",
       method: "get",
-    }).then((response) => {
-      this.items = response.data.collection;
-      this.items.forEach((item) => {
-        if (item.wpArea === "Citizenship with Global Perspe")
-          item.wpArea = "Citizenship with Global Perspectives";
-        if (item.wpArea === "Interpersonal Relation and Tea")
-          item.wpArea = "Interpersonal Relation and Teamwork";
+    })
+      .then((response) => {
+        this.items = response.data.collection;
+        this.items?.forEach((item) => {
+          if (item.wpArea === "Citizenship with Global Perspe")
+            item.wpArea = "Citizenship with Global Perspectives";
+          if (item.wpArea === "Interpersonal Relation and Tea")
+            item.wpArea = "Interpersonal Relation and Teamwork";
+        });
+        this.loading = false;
+      })
+      .catch((err) => {
+        console.log(err);
       });
-      this.loading = false;
-    });
   },
   methods: {
     updateItems(area, evt) {
