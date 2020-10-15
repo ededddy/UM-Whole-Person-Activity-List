@@ -11,7 +11,7 @@ const getData = async () => {
     ).selected = true;
     document.querySelector("select#_id18-nb__xc_c").onchange();
   });
-  await page.waitFor(5000);
+  await page.waitFor(3500);
 
   const tar = await page.evaluate(() => {
     const targets = document.querySelectorAll("td.x2n.x62");

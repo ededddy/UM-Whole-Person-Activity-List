@@ -21,16 +21,16 @@ new Vue({
   },
   mounted() {
     axios({
-      // url: "https://wrapapi.com/use/ededdy/umwp/news/0.0.3",
       url: "/activities",
       method: "get",
-      // data: {
-      //   // "wrapAPIKey": "1RpF8AqqGz5fdUrzikjKB8ZD9Qy2RJ0G"
-      //   wrapAPIKey: "1kL5Re2Vx3Evh5ITLS2oL0j26XObQjfE",
-      // },
     }).then((response) => {
-      // console.log(response.data);
       this.items = response.data.collection;
+      this.items.forEach((item) => {
+        if (item.wpArea === "Citizenship with Global Perspe")
+          item.wpArea = "Citizenship with Global Perspectives";
+        if (item.wpArea === "Interpersonal Relation and Tea")
+          item.wpArea = "Interpersonal Relation and Teamwork";
+      });
       this.loading = false;
     });
   },

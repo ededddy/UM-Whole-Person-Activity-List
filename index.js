@@ -10,6 +10,8 @@ app.get("/activities", async (req, res) => {
   res.send(await util.getData());
 });
 
-app.listen(process.env.PORT || 5000, () =>
-	console.log("UM WP Scraping Sever is running on port 3000"),
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () =>
+  console.log(`UM WP Scraping Sever is running on port ${PORT}`)
 );
