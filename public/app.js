@@ -32,6 +32,7 @@ new Vue({
           if (item.wpArea === "Interpersonal Relation and Tea")
             item.wpArea = "Interpersonal Relation and Teamwork";
         });
+        this.activities = this.items;
         this.loading = false;
       })
       .catch((err) => {
