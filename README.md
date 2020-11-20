@@ -1,9 +1,9 @@
 # UM-Whole-Person-Activity-List
-Better version of this repo
+Another version of this repo but not listing all activities
 https://github.com/ededddy/UM-Whole-Person-Activities-Card
 
 # Running instance
-https://um-whole-person-activity-list.vercel.app/
+https://um-wp-list.herokuapp.com/
 
 # Differences?
 No more WrapAPIv2, because it does not support js scripting to show all events.
