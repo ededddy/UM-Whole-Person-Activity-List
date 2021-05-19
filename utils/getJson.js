@@ -8,12 +8,16 @@ const getData = async () => {
   const page = await browser.newPage();
   await page.goto("https://isw.umac.mo/wp/faces/news.jspx");
   await page.evaluate(() => {
-    document.querySelector(
+    const list = document.querySelector(
       "select#_id18-nb__xc_c option[value='all']"
-    ).selected = true;
-    document.querySelector("select#_id18-nb__xc_c").onchange();
+    );
+    if (list) {
+      list.selected = true;
+      document.querySelector("select#_id18-nb__xc_c").onchange();
+    }
+    return;
   });
-  await page.waitFor(3500);
+  await page.waitFor(2000);
 
   const tar = await page.evaluate(() => {
     const targets = document.querySelectorAll("td.x2n.x62");
