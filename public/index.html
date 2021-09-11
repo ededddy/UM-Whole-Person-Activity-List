@@ -94,12 +94,12 @@
   </head>
 
   <body>
-    <div id="app" style="margin: 1.25rem">
+    <div id="app">
       <h1 class="ui header" style="text-align: center">UM Whole Person</h1>
-      <div class="ui grid">
+      <div class="ui grid ">
         <!-- side panel -->
         <div class="four wide column">
-          <div class="ui vertical fluid tabular menu">
+          <div class="ui vertical secondary pointing menu">
             <a class="item active" @click="updateItems('', $event)">All</a>
             <a
               :key="idx"
@@ -112,7 +112,7 @@
           </div>
         </div>
         <!-- content -->
-        <div class="twelve wide stretched column">
+        <div class="twelve wide column">
           <div class="ui segment">
             <div v-if="loading">
               <v-loading
@@ -131,9 +131,9 @@
                   class="card fluid"
                   v-for="activity in items"
                 >
-                  <div class="image">
+                  <div class="image medium ui centered">
                     <img
-                      src="https://www.um.edu.mo/sao/sds/std/wpdap/WP%20Logo.jpg"
+                      src="./images/umwp.svg"
                     />
                   </div>
 
@@ -174,28 +174,23 @@
           </div>
         </div>
       </div>
+      <footer>
+        Made by <a href="http://github.com/ededddy/" target="_blank">Eddy</a>.
+        <br />
+        <div id="repo">
+          <a
+            href="https://github.com/ededddy/UM-Whole-Person-Activities-Card"
+            target="_blank"
+          >
+            <img
+              class="github-icon"
+              src="./images/GitHub-Mark-120px-plus.png"
+              alt="Github repo"
+            />
+            GitHub
+          </a>
+        </div>
+      </footer>
     </div>
-    <footer>
-      Made by <a href="http://github.com/ededddy/" target="_blank">Eddy</a>.
-      Contact
-      <a href="mailto:eddylei070300@gmail.com" target="_blank"
-        >eddylei070300@gmail.com</a
-      >
-      if you have any <b>issue</b> or <b>suggestion</b>
-      <br />
-      <div id="repo">
-        <a
-          href="https://github.com/ededddy/UM-Whole-Person-Activities-Card"
-          target="_blank"
-        >
-          <img
-            class="github-icon"
-            src="./images/GitHub-Mark-120px-plus.png"
-            alt="Github repo"
-          />
-          GitHub
-        </a>
-      </div>
-    </footer>
   </body>
 </html>
